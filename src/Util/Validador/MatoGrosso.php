@@ -19,8 +19,8 @@ class MatoGrosso implements ValidadorInteface
     {
         $valid = true;
         // se não tiver 11 digitos não é valido
-        if (strlen($inscricao_estadual) != 11) {
-            $valid = false;
+        if (strlen($inscricao_estadual) > 0 && strlen($inscricao_estadual) < 11) {
+            $inscricao_estadual = str_pad($inscricao_estadual, 11, "0", STR_PAD_LEFT);
         }
         if ($valid && !self::calculaDigito($inscricao_estadual)) {
             $valid = false;
