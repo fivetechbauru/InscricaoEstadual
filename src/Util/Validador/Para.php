@@ -20,7 +20,7 @@ class Para extends Ceara
         if (strlen($inscricao_estadual) != 9) {
             $valid = false;
         }
-        if ($valid && substr($inscricao_estadual, 0, 2) != '15') {
+        if ($valid && !in_array(substr($inscricao_estadual, 0, 2), ['15', '75', '76', '77', '78', '79'])) {
             $valid = false;
         }
         if ($valid && !self::calculaDigito($inscricao_estadual)) {
